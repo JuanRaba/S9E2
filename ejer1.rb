@@ -2,7 +2,7 @@
 class Table
   def initialize(name, *days)
     @name = name
-    @days = days
+    @days = days.map &:to_i # { |e| e.to_i }
   end
 
   def max
@@ -19,7 +19,7 @@ def load_casino(casino)
   File.open('casino.txt', 'r') { |file| data = file.readlines }
 
   data.each do |prod|
-    ls = prod.chomp.split(', ').map &:to_i # { |e| e.to_i }
+    ls = prod.chomp.split(', ')
     casino << Table.new(*ls)
   end
 end
