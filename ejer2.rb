@@ -43,4 +43,3 @@ def show_starts_before(academi, date=Date::today)
   end
 end
 show_starts_before(academi, date)
-
